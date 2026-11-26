@@ -57,3 +57,13 @@ body{
 #campo-Digitado{
     font-size: 20px;
 }
+#btn-reiniciar{
+    font-size: 20px;
+    color: #e1e3ec;
+    background-color: rgb(43, 35, 89);
+}
+#btn-verificar{
+    font-size: 20px;
+    color: #e1e3ec;
+    background-color: rgb(26, 20, 59);
+}

@@ -19,6 +19,7 @@ let CampoDigitado = document.querySelector("#campo-Digitado");
 let telaDescartados = document.querySelector("#descartados");
 let btnVerificar = document.querySelector("#btn-verificar");
 let statusMensagem = document.querySelector("#status");
+let btnReiniciar = document.querySelector("#btn-reiniciar");
 
 btnVerificar.addEventListener("click", testarPalavra);
 
@@ -70,3 +71,7 @@ function testarPalavra(){
         CampoDigitado.disabled = true;
     }
 }
+
+btnReiniciar.addEventListener("click", function () {
+    location.reload();
+});
