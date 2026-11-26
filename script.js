@@ -1,6 +1,7 @@
 let palavraSecreta = ['crocodilo', 'tartaruga', 'futebol', 'computador', 'maça', 'banana', 'leao','gorila', 'rinoceronte', 'caixa','cleiton','cadeira','bolsa', 'camelo', 'abacaxi' ];
-let vidasRestantes = 5;
+let vidasRestantes = 6;
 let letraOculta = [];
+let erros = 0;
 
 const sorteio = Math.floor(Math.random() * palavraSecreta.length);
 const palavra = palavraSecreta[sorteio];
@@ -15,6 +16,7 @@ forcaPalavra.innerHTML = letraOculta.join(" ");
 let telaVidas = document.querySelector("#vidas");
 telaVidas.innerHTML = vidasRestantes;
 let CampoDigitado = document.querySelector("#campo-Digitado");
+let telaDescartados = document.querySelector("#descartados");
 let btnVerificar = document.querySelector("#btn-verificar");
 let statusMensagem = document.querySelector("#status");
 
@@ -41,10 +43,20 @@ function testarPalavra(){
     if (palavraCorreta){
         forcaPalavra.innerHTML = letraOculta.join(" ");
     }else {
-        vidasRestantes--;
-        telaVidas.innerHTML = vidasRestantes;
-        vidasRestantes.innerHTML += `${digito}`;
-    }
+            vidasRestantes--;
+            erros++;
+
+            // Mostrar uma parte do boneco
+            let parte = document.querySelector("#parte" + erros);
+
+            parte.style.display = "block";
+
+            // Atualizar as vidas
+            telaVidas.innerHTML = vidasRestantes;
+
+            // Mostrar a letra errada
+            telaDescartados.innerHTML += `${digito} `;
+        }
 
     //Verificar a condição de vitória ou derrota
     if (vidasRestantes == 0){
